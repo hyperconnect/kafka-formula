@@ -19,6 +19,8 @@
 
 {%- set num_partitions = gc.get('num_partitions', pc.get('num_partitions', 1)) %}
 
+{%- set log_dirs = gc.get('log_dirs', pc.get('log_dirs', '/var/log/kafka')) %}
+
 {%- set kafka = {} %}
 {%- do kafka.update({
   'java_home'                : java_home,
@@ -30,4 +32,5 @@
   'restart_on_config_change' : restart_on_config_change,
   'config_properties'        : config_properties,
   'num_partitions'           : num_partitions,
+  'log_dirs'                 : log_dirs,
 }) %}
