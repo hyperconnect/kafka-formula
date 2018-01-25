@@ -21,6 +21,8 @@
 
 {%- set log_dirs = gc.get('log_dirs', pc.get('log_dirs', '/var/log/kafka')) %}
 
+{%- set jmx_port = gc.get('jmx_port', pc.get('jmx_port', '')) %}
+
 {%- set kafka = {} %}
 {%- do kafka.update({
   'java_home'                : java_home,
@@ -33,4 +35,5 @@
   'config_properties'        : config_properties,
   'num_partitions'           : num_partitions,
   'log_dirs'                 : log_dirs,
+  'jmx_port'                 : jmx_port,
 }) %}
