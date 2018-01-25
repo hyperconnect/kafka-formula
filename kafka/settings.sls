@@ -17,6 +17,8 @@
 
 {%- set config_properties = gc.get('properties', pc.get('properties', {})) %}
 
+{%- set num_partitions = gc.get('num_partitions', pc.get('num_partitions', 1)) %}
+
 {%- set kafka = {} %}
 {%- do kafka.update({
   'java_home'                : java_home,
@@ -27,4 +29,5 @@
   'chroot_path'              : chroot_path,
   'restart_on_config_change' : restart_on_config_change,
   'config_properties'        : config_properties,
+  'num_partitions'           : num_partitions,
 }) %}
