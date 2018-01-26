@@ -25,6 +25,8 @@
 
 {%- set listeners = gc.get('listeners', pc.get('listeners', '')) %}
 
+{%- set retention_hours = gc.get('retention_hours', pc.get('retention_hours', 168)) %}
+
 {%- set kafka = {} %}
 {%- do kafka.update({
   'java_home'                : java_home,
@@ -38,5 +40,6 @@
   'num_partitions'           : num_partitions,
   'log_dirs'                 : log_dirs,
   'jmx_port'                 : jmx_port,
-  'listeners'                 : listeners,
+  'listeners'                : listeners,
+  'retention_hours'          : retention_hours,
 }) %}
