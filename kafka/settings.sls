@@ -23,7 +23,7 @@
 
 {%- set jmx_port = gc.get('jmx_port', pc.get('jmx_port', '')) %}
 
-{%- set listener = gc.get('listener', pc.get('listener', '')) %}
+{%- set listeners = gc.get('listeners', pc.get('listeners', '')) %}
 
 {%- set kafka = {} %}
 {%- do kafka.update({
@@ -38,5 +38,5 @@
   'num_partitions'           : num_partitions,
   'log_dirs'                 : log_dirs,
   'jmx_port'                 : jmx_port,
-  'listener'                 : listener,
+  'listeners'                 : listeners,
 }) %}
